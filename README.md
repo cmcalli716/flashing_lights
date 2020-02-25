@@ -1,4 +1,6 @@
 This is the readme
+
+derek was here
 <<<<<<< HEAD
 
 I made this change -Chris 
