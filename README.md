@@ -1,16 +1,28 @@
-This is the readme
+# Flashing Lights 
+--------------------------------------------------------------------------------------------------
+## Image Stack Processing Software for Fluorescence Microscopy in Research
+--------------------------------------------------------------------------------------------------
+This software package can be utilized in fluorescence imaging analysis to effectively 
+communicate information present within video files. Functions present within the program are
+designed to:
 
-<<<<<<< HEAD
-ha it is screwed up now
+* Identify Regions of Interest (R.O.I.) based on relative pixel brightness
+* Track ROI throughout the image stack and provide individual fluorescence intensity vs. time profiles
+* Accumulate ROI counts throughout the stack and return a frequency heat map
+* Accumulate ROI intensity throughout the stack and return an intensity heat map
+--------------------------------------------------------------------------------------------------
+### Installing flashing_lights
+***Include install information here***
+`conda install flashing_lights`
 
-nevermind no longer screwed up, we made branches
+***Also include information regarding installing the module stack (numpy, pandas, etc.)***
 
-=======
-derek was here
-<<<<<<< HEAD
+---------------------------------------------------------------------------------------------------
+### Using flashing_lights
 
-I made this change -Chris 
-hi --july
-=======
->>>>>>> 754459adf318efdac4dce4891b6929bb31a72a6c
->>>>>>> 32b41cc63ba5142fa3bb471f9ded25d0d57e4084
+***Include usage information and perhaps an example jupyter notebook***
+
+---------------------------------------------------------------------------------------------------
+### Preview of the results
+
+***Include screenshots of us using the code***
