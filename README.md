@@ -21,10 +21,10 @@ flashing_lights, as well as:
 #### Activating the virtual environment
 * Included within the root of the repository is a virtual environment
 pre-suited to run `flashing_lights`
-  * The virtual environment is located within `flashing_lights/env`
+  * The virtual environment is located within the root of the repository
   * To activate the virtual environment, after cloning,
   enter into the command prompt:
-`source activate ~/<path to>/flashing_lights/env/flashing_lights_venv`
+`source activate ~/<path to>/flashing_lights/flashing_lights_venv`
   * The environment contains:
     * Python 3.7 from miniconda3
     * numpy
