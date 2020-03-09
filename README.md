@@ -1,7 +1,8 @@
+[![Build Status](https://travis-ci.com/cmcalli716/flashing_lights.svg?branch=master)](https://travis-ci.com/cmcalli716/flashing_lights)
 # Flashing Lights
 ## Image Stack Processing Software for Fluorescence Microscopy in Research
 This software package can be utilized in fluorescence imaging analysis to
-effectively communicate information present within video files. 
+effectively communicate information present within video files.
 Functions present within the program are
 designed to:
 
