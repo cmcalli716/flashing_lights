@@ -17,11 +17,11 @@ def frequency_count(file):
     for frame in range(len(gray)):
         thresh = 1
         #empty matrix to store counts
-        if np.where(gray[frame] == thresh) != []: #if value exceeds threshold
+        if len(np.where(gray[frame] == thresh)) > 0: #if value exceeds threshold
             itemarray = np.where(gray[frame] >= thresh) #grab position of value
             frequency[itemarray] = 1 #adds counter of 1 in specific location relevant to image
             index_count = [itemarray]
-            if frame != 0 and np.intersect1d(index_count, itemarray) != []:
+            if frame > 0 and len(np.intersect1d(index_count, itemarray)) > 0:
         #checks if a signal in a ROI occurs and if so, can add to the frequency in that location
                 overlap = np.intersect1d(index_count, itemarray)
                 frequency[overlap] += 1
