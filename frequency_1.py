@@ -16,3 +16,20 @@ def single_image_count(file):
     else:
         pass
     return frequency
+
+def frequency_count(file):
+    # Reading video file
+    img = cv2.imread(file)
+    # Converting to grayscale
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    frequency = np.zeros(gray.shape[0]) #assumes image sizes are the same
+    for frame in range(len(gray)):
+        thresh = 1
+        #empty matrix to store counts
+        if np.where(gray[frame] == thresh) != []: #if value exceeds threshold
+            itemarray = np.where(gray[frame]>=thresh) #grab position of value
+            frequency[itemarray] = 1 #adds counter of 1 in specific location relevant to image
+            if frequency[itemarray]
+        else:
+            pass
+    return frequency
