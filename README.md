@@ -31,6 +31,7 @@ pre-suited to run `flashing_lights`
     * os
     * pandas
     * cv2
+    * matplotlib
 
 
 ### Installing flashing_lights through the command line
@@ -52,6 +53,9 @@ pre-suited to run `flashing_lights`
   into the command line:
   `jupyter notebook ~/<path to>/flashing_lights/flashing_lights/fl_nb_template.ipynb`
 
+### Miscellaneous Notes
+  * In regards to PEP8 compliance of the frequency_1.py file, pylint shoots back an error I1101. 
+  The '.pylintrc' file can be downloaded to prevent those from showing up in the terminal. 
 
 ### Preview of the results
 
