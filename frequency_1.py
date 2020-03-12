@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 def frequency_count(file):
     # Reading video file and convert to grayscale
-ret, img = cv2.imreadmulti(file, flags = cv2.IMREAD_GRAYSCALE)
+    ret, img = cv2.imreadmulti(file, flags = cv2.IMREAD_GRAYSCALE)
     frequency = np.zeros(np.shape(img[0])) #assumes image sizes are the same
     #indexes what rows and cols pixels show events
     index_count_row = []
@@ -46,7 +46,8 @@ def heatmap(file, savefig, path):
     """This function creates a heatmap based on the observed frequency count
     of Fluorscence events observed. It intakes a file. The user can choose
     where they want to save the image and what its labeled as in their computer."""
-# Reading video file
+    frequency_values = frequency_count(file) #grab frequencies
+    # Reading video file
     ret, img = cv2.imreadmulti(file, flags = cv2.IMREAD_GRAYSCALE)
     #x and y range determined by size of frame in both directions
     pixel_X = np.arange(0, len(img[0]), 1)
