@@ -1,2 +1,2 @@
 __version__ = '1.0'
-from .GenerateHeatMap import GenerateHeatMap
+from flashing_lights import .GenerateHeatMap
