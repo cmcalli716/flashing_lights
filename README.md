@@ -12,25 +12,25 @@ designed to:
 * Accumulate ROI intensity throughout the stack and return an intensity heat map
 
 #### Repository Structure
-`-flashing_lights/
-    README.md
-    LICENSE
-    -flashing_lights/
-        __init__.py
-        -GenerateHeatMap/
-          __init__.py
-          GenerateHeatMap.py
-        -tests/
-          __init__.py
-          test_GenerateHeatMap.py
-    -doc/
-        functionality.md
-        usage_cases.md
-        tech_review.pdf
-    .gitignore (includes directories and filetypes ignored by git)
-    .environment.yml (virtual environment for flashing_lights)
-    .travis.yml
-    .pylintrc (Included for code style checks)`
+`flashing_lights/
+    * README.md
+    * LICENSE
+    * flashing_lights/
+        * __init__.py
+        * GenerateHeatMap/
+          * __init__.py
+          * GenerateHeatMap.py
+        * tests/
+          * __init__.py
+          * test_GenerateHeatMap.py
+    * doc/
+        * functionality.md
+        * usage_cases.md
+        * tech_review.pdf
+    * .gitignore (includes directories and filetypes ignored by git)
+    * .environment.yml (virtual environment for flashing_lights)
+    * .travis.yml
+    * .pylintrc (Included for code style checks)`
 
 
 #### Installing flashing_lights through the command line
@@ -68,7 +68,7 @@ pre-suited to run `flashing_lights`
   `jupyter notebook flashing_lights/examples/templates/fl_nb_template.ipynb`
 
 ### Miscellaneous Notes
-  * In regards to PEP8 compliance of the GenerateHeatMap.py file, pylint shoots back an error I1101. 
+  * In regards to PEP8 compliance of the GenerateHeatMap.py file, pylint shoots back an error I1101.
   The '.pylintrc' file can be downloaded to prevent those from showing up in the terminal.
 
 ### Preview of the results
