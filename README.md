@@ -12,7 +12,7 @@ designed to:
 * Accumulate ROI intensity throughout the stack and return an intensity heat map
 
 #### Repository Structure
-`flashing_lights/
+flashing_lights/
     * README.md
     * LICENSE
     * flashing_lights/
@@ -30,7 +30,7 @@ designed to:
     * .gitignore (includes directories and filetypes ignored by git)
     * .environment.yml (virtual environment for flashing_lights)
     * .travis.yml
-    * .pylintrc (Included for code style checks)`
+    * .pylintrc (Included for code style checks)
 
 
 #### Installing flashing_lights through the command line
