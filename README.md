@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/cmcalli716/flashing_lights.svg?branch=master)](https://travis-ci.com/cmcalli716/flashing_lights)
+[![Coverage Status](https://coveralls.io/repos/github/cmcalli716/flashing_lights/badge.svg?branch=master)](https://coveralls.io/github/cmcalli716/flashing_lights?branch=master)
 # Flashing Lights
 ## Image Stack Processing Software for Fluorescence Microscopy in Research
 This software package can be utilized in fluorescence imaging analysis to
