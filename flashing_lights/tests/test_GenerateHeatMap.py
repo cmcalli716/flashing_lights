@@ -22,7 +22,8 @@ def test_GetFreqCounts():
 
 def test_GetFreqArray():
     test_video = NP_video2
-    test_ret, test_img = cv2.imreadmulti(test_video, flags = cv2.IMREAD_GRAYSCALE)
+    test_ret, test_img = cv2.imreadmulti(test_video,
+    flags = cv2.IMREAD_GRAYSCALE)
     test_fn = GenerateHeatMap.GetFreqArray(test_video)
     # Testing output size
     assert len(test_fn) == len(test_img[0]),\
@@ -33,6 +34,10 @@ def test_GetFreqArray():
     assert np.mean(test_fn) > 0,\
     "No counts were found in test video"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> FreqHeatMap
 def test_Heatmap():
     test_video = NP_video2
     test_img_name = 'test'
@@ -47,4 +52,7 @@ def test_Heatmap():
     # Checking to see if saved file is empty or not
     assert os.path.getsize(test_img_path + '/' + test_img_name) > 0,\
     "Saved file is empty."
+<<<<<<< HEAD
 
+=======
+>>>>>>> FreqHeatMap

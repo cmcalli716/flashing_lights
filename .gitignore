@@ -102,3 +102,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+.DS_Store
+flashing_lights/.DS_Store
