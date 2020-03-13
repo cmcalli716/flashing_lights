@@ -1,8 +1,5 @@
 """Group of functions which produce heatmap of accumulated frequency counts.
-To run these functions the user will need a videofile (.tif format), as well
-as a desired brightness threshold. Within FreqHeatmap_example.ipynb there is an
-example of setting the brightness threshold using the mean brightness of the
-image.
+To run these functions the user will need a videofile (.tif format).
 
 WARNING: Extremely large video files (>1500 frames) or videos with
 high pixel resolution (512x512 array or greater) may take a couple of
@@ -17,10 +14,15 @@ def GetFreqCounts(frame, threshold):
     brightness threshold. If counts of sufficient brightness are present
     within the
 
-    Inputs: ndarray (image), threshold value (int or float)
+    Inputs:
+
+    - frame: ndarray of pixels (image file or video frame)
+    - threshold: minimum brightness for an event detection
 
     Output: an ndarray of boolean values describing which
-    pixels were above the brightness threshold in the frame"""
+    pixels were above the brightness threshold in the frame
+
+    """
     # Generating empty matrix for coordinate assignment
     frequency = np.zeros((len(frame), len(frame)))
     # Generating index lists to keep track of ROI coordinates
@@ -47,9 +49,11 @@ def GetFreqArray(videofile):
     brightness event count for each coordinate,
     outputting it as a 2-D array in the same size as the video frames
 
-    Input: videofile containing fluorescent events
+    Input:
+    -videofile: file containing an image stack of fluorescent events
 
-    Output: 2-d Array of frequency values for each pixel in the video"""
+    Output: 2-d Array of frequency values for each pixel above
+    a calculated brightness threshold in the video"""
     # Reading video file and convert to grayscale
     ret, img = cv2.imreadmulti(videofile, flags=cv2.IMREAD_GRAYSCALE)
     # Creating empty array to add frequency counts to
