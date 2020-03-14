@@ -1,5 +1,4 @@
-import __version__
-import test_GenerateHeatMap
-from test_GenerateHeatMap import test_GetFreqCounts
-from test_GenerateHeatMap import test_GetFreqArray
-from test_GenerateHeatMap import test_Heatmap
+__version__ = '1.0'
+from .test_GenerateHeatMap import test_GetFreqCounts
+from .test_GenerateHeatMap import test_GetFreqArray
+from .test_GenerateHeatMap import test_Heatmap
