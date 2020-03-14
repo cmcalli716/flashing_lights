@@ -1,4 +1,4 @@
-name: fl_venv
+name: flashing_lights_env
 dependencies:
   - numpy
   - scipy
