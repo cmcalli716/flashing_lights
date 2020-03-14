@@ -12,27 +12,28 @@ designed to:
 * Accumulate ROI intensity throughout the stack and return an intensity heat map
 
 #### Repository Structure
-flashing_lights/
-    * README.md
-    * LICENSE
-    * flashing_lights/
-        * __init__.py
-        * GenerateHeatMap/
-          * __init__.py
-          * GenerateHeatMap.py
-        * tests/
-          * __init__.py
-          * test_GenerateHeatMap.py
-    * doc/
-        * functionality.md
-        * usage_cases.md
-        * tech_review.pdf
-    * .gitignore (includes directories and filetypes ignored by git)
-    * .environment.yml (virtual environment for flashing_lights)
-    * .travis.yml
-    * .pylintrc (Included for code style checks)
+```flashing_lights/
+  |- README.md
+  flashing_lights/
+      |- __init__.py
+      |- GenerateHeatMap/
+        |- __init__.py
+        |- GenerateHeatMap.py
+      |- tests/
+        |- __init__.py
+        |- test_GenerateHeatMap.py
+  |- doc/
+     |- functionality.md
+     |- usage_cases.md
+     |- tech_review.pdf
+  |- setup.py
+  |- .travis.yml
+  |- environment.yml
+  |- LICENSE
+  |- Makefile
+  |- ipynb/
 
-
+```
 #### Installing flashing_lights through the command line
 *Include install information here* `conda install flashing_lights`
 
