@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 import os
-import flashing_lights.GenerateHeatMap as GenerateHeatMap
+import GenerateHeatMap
 
 
 def test_GetFreqCounts():
