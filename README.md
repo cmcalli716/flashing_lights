@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/cmcalli716/flashing_lights/badge.svg?branch=master)](https://coveralls.io/github/cmcalli716/flashing_lights?branch=master)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 # Flashing Lights 
-![Alt Text](https://giphy.com/gifs/LRCxXWRljt4LYf6AK1/html5)
+![Alt Text](https://im3.ezgif.com/tmp/ezgif-3-4aaa94386e67.gif)
 ## Image Stack Processing Software for Fluorescence Microscopy in Research
 This software package can be utilized in fluorescence imaging analysis to
 effectively communicate information present within video files.
