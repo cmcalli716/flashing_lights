@@ -6,7 +6,9 @@ from flashing_lights import GenerateHeatMap
 
 
 def test_GetFreqCounts():
-    test_ret, test_img = cv2.imreadmulti(NP_video,
+    test_ret, test_img = cv2.imreadmulti(
+    'https://github.com/cmcalli716/flashing_lights/blob/master/\
+flashing_lights/data/NP_collision_videos/NP_collision_array.tif'
                                          flags=cv2.IMREAD_GRAYSCALE)
     test_thresh = 2
     test_fn = GenerateHeatMap.GetFreqCounts(test_img[0], test_thresh)
@@ -21,7 +23,8 @@ def test_GetFreqCounts():
 
 
 def test_GetFreqArray():
-    test_video = NP_video2
+    test_video = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
+flashing_lights/data/NP_collision_videos/NP_collision_array_2.tif'
     test_ret, test_img = cv2.imreadmulti(test_video,
                                          flags=cv2.IMREAD_GRAYSCALE)
     test_fn = GenerateHeatMap.GetFreqArray(test_video)
@@ -36,7 +39,8 @@ def test_GetFreqArray():
 
 
 def test_Heatmap():
-    test_video = NP_video2
+    test_video = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
+flashing_lights/data/NP_collision_videos/NP_collision_array_2.tif'
     test_img_name = 'test'
     test_img_path = '/mnt/c/Users/'
     # Checking how many plots are made before and after function

@@ -1,10 +1,8 @@
 [![Build Status](https://travis-ci.com/cmcalli716/flashing_lights.svg?branch=master)](https://travis-ci.com/cmcalli716/flashing_lights)
 [![Coverage Status](https://coveralls.io/repos/github/cmcalli716/flashing_lights/badge.svg?branch=master)](https://coveralls.io/github/cmcalli716/flashing_lights?branch=master)
-<<<<<<< HEAD
 # Flashing Lights
-=======
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
-# Flashing Lights 
+# Flashing Lights
 ![Alt Text](https://im3.ezgif.com/tmp/ezgif-3-4aaa94386e67.gif)
 >>>>>>> eea63dde23dd64586a715bf7aa871e9cedabeef0
 ## Image Stack Processing Software for Fluorescence Microscopy in Research
