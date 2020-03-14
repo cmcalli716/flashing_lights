@@ -4,7 +4,6 @@
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 # Flashing Lights
 ![Alt Text](https://im3.ezgif.com/tmp/ezgif-3-4aaa94386e67.gif)
->>>>>>> eea63dde23dd64586a715bf7aa871e9cedabeef0
 ## Image Stack Processing Software for Fluorescence Microscopy in Research
 This software package can be utilized in fluorescence imaging analysis to
 effectively communicate information present within video files.
