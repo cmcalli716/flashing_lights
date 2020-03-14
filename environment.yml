@@ -3,5 +3,4 @@ dependencies:
   - numpy
   - scipy
   - matplotlib
-  - os
-  - cv2
+  - opencv
