@@ -29,9 +29,9 @@ designed to:
   |- setup.py
   |- .travis.yml
   |- environment.yml
+  |- .pylintrc (for pylint conflict with opencv)
+  |- .gitignore
   |- LICENSE
-  |- Makefile
-  |- ipynb/
 
 ```
 #### Installing flashing_lights through the command line
