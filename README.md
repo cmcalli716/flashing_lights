@@ -26,6 +26,9 @@ designed to:
      |- functionality.md
      |- usage_cases.md
      |- tech_review.pdf
+  |- examples/
+      |- worked/ (contains worked examples and example images)
+      |- templates/ (contains empty examples for users to input their own data)
   |- setup.py
   |- .travis.yml
   |- environment.yml
