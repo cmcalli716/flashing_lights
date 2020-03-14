@@ -1,8 +1,6 @@
 [![Build Status](https://travis-ci.com/cmcalli716/flashing_lights.svg?branch=master)](https://travis-ci.com/cmcalli716/flashing_lights)
 [![Coverage Status](https://coveralls.io/repos/github/cmcalli716/flashing_lights/badge.svg?branch=master)](https://coveralls.io/github/cmcalli716/flashing_lights?branch=master)
-[![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
-# Flashing Lights https://imgflip.com/i/3smlcc 
-![](https://giphy.com/gifs/LRCxXWRljt4LYf6AK1/html5)
+# Flashing Lights
 ## Image Stack Processing Software for Fluorescence Microscopy in Research
 This software package can be utilized in fluorescence imaging analysis to
 effectively communicate information present within video files.
@@ -17,6 +15,7 @@ designed to:
 ```flashing_lights/
   |- README.md
   flashing_lights/
+      |- data/
       |- __init__.py
       |- GenerateHeatMap/
         |- __init__.py
@@ -25,9 +24,9 @@ designed to:
         |- __init__.py
         |- test_GenerateHeatMap.py
   |- doc/
-     |- functionality.md
-     |- usage_cases.md
-     |- tech_review.pdf
+      |- functionality.md
+      |- usage_cases.md
+      |- tech_review.pdf
   |- examples/
       |- worked/ (contains worked examples and example images)
       |- templates/ (contains empty examples for users to input their own data)
@@ -61,7 +60,7 @@ pre-suited to run `flashing_lights`
 
 ### Using flashing_lights
 * Once installed, flashing_lights can be executed through a jupyter notebook.
-  * It is recommended to run the code within the flashing_lights_venv
+  * It is recommended to run the code within the included
   virtual environment to avoid dependency hell
   * We have included filled examples of  jupyter notebooks
   within `flashing_lights/examples/worked` that demonstrate how to use the code.
