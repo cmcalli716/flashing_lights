@@ -47,7 +47,7 @@ def GetFreqCounts(frame, threshold):
     return frequency
 
 
-def GetFreqArray(videofile):
+def GetFreqArray(videofile, scale_percent):
     """Finds pixel coordinates within a videofile (.tif, .mp4) for pixels
     that are abovea calculated brightness threshold, then accumulates the
     brightness event count for each coordinate,
