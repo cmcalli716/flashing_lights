@@ -94,12 +94,12 @@ def ROI_counting(roi, length):
     # Initial count for first frame.
     roi_count = len(roi[0])
     index_list = []
-    for i in range(0, length):
+    for i in range(1, length + 1):
         # Count the ROIs that appear frame by frame.
         # If the ROI amount increases over the frame,
         # calculate how many ROI appears.
         # Set a if loop to prevent index being out of bound.
-        if i == length - 1:
+        if length == 0:
             break
         elif len(roi[i]) < len(roi[i + 1]):
             roi_count += len(roi[i + 1]) - len(roi[i])
@@ -119,10 +119,13 @@ def ROI_counting(roi, length):
         for j in range(len(roi[i])):
             for k in range(len(roi[i + 1])):
                 # Find how many identical ROI there are between two frames.
-                if [roi[i][j][0], roi[i][j][1]] == [roi[i + 1][k][0],\
- roi[i + 1][k][1]]:
+                # ROIs are consider to be the same if the distance between them are less than 2 pixels.
+                pos1 = np.asarray([roi[i - 1][j][0], roi[i - 1][j][1]])
+                pos2 = np.asarray([roi[i][k][0], roi[i][k][1]])
+                distance = np.linalg.norm(pos1 - pos2)
+                if distance <= 2:
                     roi_count_d += 1
         # Adding the amount of different ROI within two frames
-        # that have same amount of ROI
+        # that have same amount of ROI.
         roi_count += len(roi[i]) - roi_count_d
     return roi_count
