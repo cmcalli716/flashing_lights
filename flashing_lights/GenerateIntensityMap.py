@@ -18,7 +18,7 @@ def GetIntensityValues(frame, threshold):
     pixels above the brightness threshold in the frame
 
     """
-     # Generating empty matrix for coordinate assignment
+    # Generating empty matrix for coordinate assignment
     intensities = np.zeros(np.shape(frame))
     # Generating index lists to keep track of ROI coordinates
     index_count_row = []
@@ -58,13 +58,13 @@ def GetIntensityArray(videofile, threshold, scale_percent):
     width = int(img[0].shape[1] * scale_percent / 100)
     height = int(img[0].shape[0] * scale_percent / 100)
     dim = (width, height)
-    img_resized = cv2.resize(img[0], dim, interpolation = cv2.INTER_AREA)
+    img_resized = cv2.resize(img[0], dim, interpolation=cv2.INTER_AREA)
     # Creating empty array to add intensity values to
     int_array = np.zeros(np.shape(img_resized))
     for frame in range(len(img)):
         # Resize Frame
         frame_resized = cv2.resize(img[frame],
-                                    dim, interpolation = cv2.INTER_AREA)
+                                   dim, interpolation=cv2.INTER_AREA)
         intensity = GetIntensityValues(frame_resized, threshold)
         if len(np.where(intensity >= 1)) > 0:
             # Get coordinates of the single pixel counts
@@ -85,7 +85,7 @@ def IntensityMap(videofile, threshold, scale_percent, img_path, img_name):
 
     Yellow pixels are at max intensity, blue pixels are
     minimum intensity (cmap = 'plasma')"""
-     # Reading video file
+    # Reading video file
     ret, img = cv2.imreadmulti(videofile, flags=cv2.IMREAD_GRAYSCALE)
     # obtaining frequency array
     z = GetIntensityArray(videofile, threshold, scale_percent)
@@ -94,7 +94,7 @@ def IntensityMap(videofile, threshold, scale_percent, img_path, img_name):
     height = int(img[0].shape[0] * scale_percent / 100)
     dim = (width, height)
     # resize image
-    frame_resized = cv2.resize(img[0], dim, interpolation = cv2.INTER_AREA)
+    frame_resized = cv2.resize(img[0], dim, interpolation=cv2.INTER_AREA)
     pixel_X = np.arange(0, frame_resized.shape[1])
     pixel_Y = np.arange(0, frame_resized.shape[0])
     # Mapping intensity array onto the x and y axes
