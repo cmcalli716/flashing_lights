@@ -12,7 +12,7 @@ import cv2
 def GetFreqCounts(frame, threshold):
     """Searches through an image to find greyscale pixels above a certain
     brightness threshold. If counts of sufficient brightness are present
-    within the
+    within the image, a frequency counter of 1 is added to an empty array. 
 
     Inputs:
 
@@ -33,11 +33,12 @@ def GetFreqCounts(frame, threshold):
         # Finding coordinates of brightness events
         row, col = np.where(frame >= threshold)
         for i in range(len(row)):
-            # Adds a value of 1 to the frequency output in the position of the
-            # given brightness event
-            frequency[row[i], col[i]] = 1
-            index_count_row.append(row[i])
-            index_count_col.append(col[i])
+            for j in range(len(col)):
+                # Adds a value of 1 to the frequency output in the position of the
+                # given brightness event
+                frequency[row[i], col[i]] = 1
+                index_count_row.append(row[i])
+                index_count_col.append(col[i])
     else:
         pass
     return frequency
@@ -69,8 +70,9 @@ def GetFreqArray(videofile):
             # Get coordinates of the single pixel counts
             row, col = np.where(freq == 1)
             for i in range(len(row)):
-                # Add single count to freq_array in location of event
-                freq_array[row[i], col[i]] += 1
+                for j in range(len(col)):
+                    # Add single count to freq_array in location of event
+                    freq_array[row[i], col[j]] += 1
         else:
             pass
     # Videos may contain points with extremely high frequency
