@@ -12,7 +12,7 @@ import cv2
 def GetFreqCounts(frame, threshold):
     """Searches through an image to find greyscale pixels above a certain
     brightness threshold. If counts of sufficient brightness are present
-    within the
+    within the image, a frequency counter of 1 is added to an empty array. 
 
     Inputs:
 
