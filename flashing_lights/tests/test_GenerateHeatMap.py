@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 import os
+<<<<<<< HEAD
 from flashing_lights import GenerateHeatMap
 import requests
 
@@ -15,6 +16,16 @@ def test_GetFreqCounts():
         f.write(req_test.content)
     test_ret, test_img = cv2.imreadmulti('NP_video',
                                          flags=cv2.IMREAD_GRAYSCALE)
+=======
+import GenerateHeatMap
+
+
+def test_GetFreqCounts():
+    test_ret, test_img = cv2.imreadmulti(
+    'https://github.com/cmcalli716/flashing_lights/blob/master/\
+flashing_lights/data/NP_collision_videos/NP_collision_array.tif',
+                                            flags=cv2.IMREAD_GRAYSCALE)
+>>>>>>> a2dec0250f75fdf86f96a6176bd0eb26f6fe3a7d
     test_thresh = 2
     test_fn = GenerateHeatMap.GetFreqCounts(test_img[0], test_thresh)
     # Testing output size
@@ -28,6 +39,7 @@ def test_GetFreqCounts():
 
 
 def test_GetFreqArray():
+<<<<<<< HEAD
     url = 'https://drive.google.com/open?id=1mJFNPfbdzfQ6NuFcVwRL8FVMmbw3L43K'
     req_test = requests.get(url)
     assert req_test.status_code == 200,\
@@ -35,6 +47,11 @@ def test_GetFreqArray():
     with open('test_video', 'wb') as f:
         f.write(req_test.content)
     test_ret, test_img = cv2.imreadmulti('test_video',
+=======
+    test_video = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
+flashing_lights/data/NP_collision_videos/NP_collision_array_2.tif'
+    test_ret, test_img = cv2.imreadmulti(test_video,
+>>>>>>> a2dec0250f75fdf86f96a6176bd0eb26f6fe3a7d
                                          flags=cv2.IMREAD_GRAYSCALE)
     test_fn = GenerateHeatMap.GetFreqArray('test_video')
     # Testing output size
@@ -48,12 +65,17 @@ def test_GetFreqArray():
 
 
 def test_Heatmap():
+<<<<<<< HEAD
     url = 'https://drive.google.com/open?id=1mJFNPfbdzfQ6NuFcVwRL8FVMmbw3L43K'
     req_test = requests.get(url)
     assert req_test.status_code == 200,\
         "Download failed"
     with open('video', 'wb') as f:
         f.write(req_test.content)
+=======
+    test_video = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
+flashing_lights/data/NP_collision_videos/NP_collision_array_2.tif'
+>>>>>>> a2dec0250f75fdf86f96a6176bd0eb26f6fe3a7d
     test_img_name = 'test'
     test_img_path = '/mnt/c/Users/'
     # Checking how many plots are made before and after function
