@@ -84,6 +84,3 @@ pre-suited to run `flashing_lights`
   * In regards to PEP8 compliance of the GenerateHeatMap.py file, pylint shoots back an error I1101.
   The '.pylintrc' file can be downloaded to prevent those from showing up in the terminal.
 
-### Preview of the results
-
-***Include screenshots of us using the code***
