@@ -39,7 +39,7 @@ def test_IntensityMap():
     # Checking how many plots are made before and after function
     plot_before = plt.gcf().number
     test_fn = GenerateIntensityMap.IntensityMap('NP_test1.tif', 1, 100,
-                                      test_img_path, test_img_name)
+                                                test_img_path, test_img_name)
     plot_after = plt.gcf().number
     assert plot_before < plot_after,\
         "You have nothing plotted"
