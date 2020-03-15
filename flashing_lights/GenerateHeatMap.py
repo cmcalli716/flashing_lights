@@ -36,7 +36,7 @@ def GetFreqCounts(frame, threshold):
             for j in range(len(col)):
                 # Adds intensity value in the position of the
                 # given brightness event
-                intensities[row[i], col[j]] = frame[row[i], col[j]]
+                frequency[row[i], col[j]] = frame[row[i], col[j]]
                 # Adds a value of 1 to the frequency output in the position of
                 # the given brightness event
                 frequency[row[i], col[i]] = 1
@@ -64,9 +64,9 @@ def GetFreqArray(videofile, scale_percent):
     width = int(img[0].shape[1] * scale_percent / 100)
     height = int(img[0].shape[0] * scale_percent / 100)
     dim = (width, height)
-    img_resized = cv2.resize(img[0], dim, interpolation = cv2.INTER_AREA)
+    img_resized = cv2.resize(img[0], dim, interpolation=cv2.INTER_AREA)
     # Creating empty array to add intensity values to
-    int_array = np.zeros(np.shape(img_resized))
+    freq_array = np.zeros(np.shape(img_resized))
     # Looking through each frame to get the frequency counts
     for frame in range(len(img)):
         # Setting threshold using mean and stdev of pixel brightness
@@ -75,7 +75,7 @@ def GetFreqArray(videofile, scale_percent):
         threshold = mean + 3*std
         # Resize Frame
         frame_resized = cv2.resize(img[frame],
-                                    dim, interpolation = cv2.INTER_AREA)
+                                   dim, interpolation=cv2.INTER_AREA)
         freq = GetFreqCounts(frame_resized, threshold)
         if len(np.where(freq == 1)) > 0:
             # Get coordinates of the single pixel counts
@@ -111,7 +111,7 @@ def GetFreqArray(videofile, scale_percent):
         outlier_row, outlier_col = np.where(freq_array >= upper_lim)
         for i in range(len(outlier_row)):
             for j in range(len(outlier_col)):
-            # Replacing outlier frequency with the upper limit of distribution
+                # Replacing outlier frequency with upper limit of distribution
                 freq_array[outlier_row[i], outlier_col[j]] = upper_lim
     else:
         pass
@@ -134,7 +134,7 @@ def Heatmap(videofile, scale_percent, img_path, img_name):
     height = int(img[0].shape[0] * scale_percent / 100)
     dim = (width, height)
     # resize image
-    frame_resized = cv2.resize(img[0], dim, interpolation = cv2.INTER_AREA)
+    frame_resized = cv2.resize(img[0], dim, interpolation=cv2.INTER_AREA)
     pixel_X = np.arange(0, frame_resized.shape[1])
     pixel_Y = np.arange(0, frame_resized.shape[0])
     # Mapping frequency array onto the x and y axes
