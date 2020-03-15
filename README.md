@@ -62,6 +62,11 @@ pre-suited to run `flashing_lights`
     * cv2
 
 ### Using flashing_lights
+* Before using, please download some sample data that you can test the package with (UW members only):
+  * https://drive.google.com/open?id=1_QdBC2IoNTqGhwI5b9mVSK-13hiPy7nv (Belongs to Chris)
+  * https://drive.google.com/open?id=1mJFNPfbdzfQ6NuFcVwRL8FVMmbw3L43K (Belongs to Chris)
+  * https://drive.google.com/open?id=1ZkAAcj-qXpCypLGnU8HuU47QkjAKdvko (Belongs to July)
+  * https://drive.google.com/open?id=12Noa3-JsaPup9Ao9WEqEOqzdbKAMogCA (Belongs to July)
 * Once installed, flashing_lights can be executed through a jupyter notebook.
   * It is recommended to run the code within the included
   virtual environment to avoid dependency hell
