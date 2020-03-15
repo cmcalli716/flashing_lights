@@ -102,7 +102,6 @@ def IntensityMap(videofile, threshold, scale_percent, img_path, img_name):
     plt.xlabel('Pixel Count')
     plt.ylabel('Pixel Count')
     plt.title('Intensity Map')
-    plt.colorbar()
     # picture is saved in file location designated by user
     plt.savefig(img_path + '/' + img_name + '.png', bbox_inches='tight')
     return fig
