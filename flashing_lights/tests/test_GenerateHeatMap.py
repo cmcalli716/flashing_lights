@@ -11,14 +11,14 @@ def test_GetFreqCounts():
     url = 'https://github.com/cmcalli716/flashing_lights/\
     blob/master/flashing_lights/data/July_test.tif?raw=true'
     req = requests.get(url)
-    assert req.status_code == 200  # line will generate an error
+    assert req.status_code == 200,\
+        "Download failed"
     with open(filename, 'wb') as f:
         f.write(req.content)
     test_ret, test_img = cv2.imreadmulti('test.tif',
                                          flags=cv2.IMREAD_GRAYSCALE)
     test_thresh = 5
     test_fn = GenerateHeatMap.GetFreqCounts(test_img[0], test_thresh)
-    # Testing output size
     assert len(test_fn) == len(test_img[0]),\
         "Output is the wrong shape"
     # Testing output type
@@ -34,7 +34,8 @@ def test_GetFreqArray():
     url = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
     flashing_lights/data/July_test.tif?raw=true'
     req = requests.get(url)
-    assert req.status_code == 200  # line will generate an error
+    assert req.status_code == 200,\
+        "Download failed"
     with open(filename, 'wb') as f:
         f.write(req.content)
     test_ret, test_img = cv2.imreadmulti('test.tif',
@@ -57,7 +58,8 @@ def test_Heatmap():
     url = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
     flashing_lights/data/July_test.tif?raw=true'
     req = requests.get(url)
-    assert req.status_code == 200  # line will generate an error
+    assert req.status_code == 200,\
+        "Download failed"
     with open(filename, 'wb') as f:
         f.write(req.content)
     test_img_name = 'test'
