@@ -22,7 +22,7 @@ def test_GetIntensityValues():
 
 def test_GetIntensityArray():
     test_ret, test_img = cv2.imreadmulti('NP_test1.tif')
-    test_fn = GenerateIntensityMap.GetIntensityArray('NP_test1.tif')
+    test_fn = GenerateIntensityMap.GetIntensityArray('NP_test1.tif', 1, 100)
     # Testing output size
     assert len(test_fn) == len(test_img[0]),\
         "Output is the wrong shape"
@@ -38,7 +38,7 @@ def test_IntensityMap():
     test_img_path = '/mnt/c/Users/'
     # Checking how many plots are made before and after function
     plot_before = plt.gcf().number
-    test_fn = GenerateIntensityMap.IntensityMap('NP_test1.tif',
+    test_fn = GenerateIntensityMap.IntensityMap('NP_test1.tif', 1, 100,
                                       test_img_path, test_img_name)
     plot_after = plt.gcf().number
     assert plot_before < plot_after,\
