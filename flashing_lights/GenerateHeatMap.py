@@ -34,15 +34,12 @@ def GetFreqCounts(frame, threshold):
         row, col = np.where(frame >= threshold)
         for i in range(len(row)):
             for j in range(len(col)):
-<<<<<<< HEAD
                 # Adds intensity value in the position of the
                 # given brightness event
                 intensities[row[i], col[j]] = frame[row[i], col[j]]
-=======
                 # Adds a value of 1 to the frequency output in the position of
                 # the given brightness event
                 frequency[row[i], col[i]] = 1
->>>>>>> 495367b941b13e2ad577ff5b30a5da309f02bbdb
                 index_count_row.append(row[i])
                 index_count_col.append(col[j])
     else:
@@ -113,8 +110,9 @@ def GetFreqArray(videofile):
     if len(np.where(freq_array >= upper_lim)) > 0:
         outlier_row, outlier_col = np.where(freq_array >= upper_lim)
         for i in range(len(outlier_row)):
+            for j in range(len(outlier_col)):
             # Replacing outlier frequency with the upper limit of distribution
-            freq_array[outlier_row[i], outlier_col[i]] = upper_lim
+                freq_array[outlier_row[i], outlier_col[j]] = upper_lim
     else:
         pass
     return freq_array
