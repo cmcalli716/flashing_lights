@@ -34,9 +34,15 @@ def GetFreqCounts(frame, threshold):
         row, col = np.where(frame >= threshold)
         for i in range(len(row)):
             for j in range(len(col)):
+<<<<<<< HEAD
                 # Adds intensity value in the position of the
                 # given brightness event
                 intensities[row[i], col[j]] = frame[row[i], col[j]]
+=======
+                # Adds a value of 1 to the frequency output in the position of
+                # the given brightness event
+                frequency[row[i], col[i]] = 1
+>>>>>>> 495367b941b13e2ad577ff5b30a5da309f02bbdb
                 index_count_row.append(row[i])
                 index_count_col.append(col[j])
     else:
