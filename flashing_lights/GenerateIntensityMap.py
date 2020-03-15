@@ -41,7 +41,7 @@ def GetIntensityValues(frame, threshold):
 
 def GetIntensityArray(videofile, threshold, scale_percent):
     """Finds pixel coordinates within a videofile (.tif, .mp4) for pixels
-    that are abovea calculated brightness threshold, then accumulates the
+    that are above a brightness threshold, then accumulates the
     brightness event intensities for each coordinate,
     outputting it as a 2-D array in the same size as the video frames
 
@@ -63,7 +63,8 @@ def GetIntensityArray(videofile, threshold, scale_percent):
     int_array = np.zeros(np.shape(img_resized))
     for frame in range(len(img)):
         # Resize Frame
-        frame_resized = cv2.resize(img[frame], dim, interpolation = cv2.INTER_AREA)
+        frame_resized = cv2.resize(img[frame],
+                                    dim, interpolation = cv2.INTER_AREA)
         intensity = GetIntensityValues(frame_resized, threshold)
         if len(np.where(intensity >= 1)) > 0:
             # Get coordinates of the single pixel counts
