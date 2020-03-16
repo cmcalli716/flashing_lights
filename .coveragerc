@@ -1,13 +1,4 @@
 [run]
-branch = True
-source = flashing_lights/*
-include = flashing_lights/*
-omit = */setup.py
-[report]
-include = flashing_lights/*
-omit =  
-    */python?.?/*
-    */site-packages/nose/*
-    *__init__*
-exclude_lines =
-    if __name__ == .__main__.:
+omit =
+  *__init__.py
+  flashing_lights/version.py
