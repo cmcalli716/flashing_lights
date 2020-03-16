@@ -1,8 +1,9 @@
-import numpy as np
-import cv2
 import os
 import unittest
-import flashing_lights
+
+import numpy as np
+import cv2
+
 from flashing_lights import GenerateIntensityMap
 
 
@@ -54,8 +55,6 @@ class test_GenerateIntensityMap(unittest.TestCase):
         # Get video from repo for testing
         filename = 'July_test.tif'
         test_vid = os.path.join(data_path, filename)
-        test_ret, test_img = cv2.imreadmulti(test_vid,
-                                             flags=cv2.IMREAD_GRAYSCALE)
         test_thresh = 5
         scale = 0.1
         test_fn = GenerateIntensityMap.IntensityMap(test_img, test_thresh,

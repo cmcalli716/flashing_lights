@@ -1,8 +1,9 @@
-import numpy as np
-import cv2
 import os
 import unittest
-import flashing_lights
+
+import numpy as np
+import cv2
+
 from flashing_lights import GenerateHeatMap
 
 
