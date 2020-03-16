@@ -51,7 +51,7 @@ class test_GenerateHeatMap(unittest.TestCase):
                                       interpolation=cv2.INTER_AREA)
         test_thresh = 5
         test_fn = GenerateHeatMap.GetFreqArray(test_vid, test_thresh,
-                                               scale_percent)
+                                               scale_percent, outliers=False)
         # Testing output size
         assert len(test_fn) == len(test_img_resized),\
             "Output is the wrong shape"
@@ -64,7 +64,7 @@ class test_GenerateHeatMap(unittest.TestCase):
         # Get video from repo for testing
         test_vid = data
         test_img_name = 'test'
-        test_img_path = '~/Desktop'
+        test_img_path = '/Users/mcalli75/Desktop/'
         scale_percent = 1
         test_thresh = 5
         test_fn = GenerateHeatMap.Heatmap(test_vid, test_thresh, scale_percent,

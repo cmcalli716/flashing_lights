@@ -49,8 +49,8 @@ class test_GenerateIntensityMap(unittest.TestCase):
                                       interpolation=cv2.INTER_AREA)
         test_thresh = 5
         scale = 1
-        test_fn = GenerateIntensityMap.GetIntensityArray(test_img_resized,
-                                                         test_thresh, scale)
+        test_fn = GenerateIntensityMap.GetIntensityArray(test_vid, test_thresh,
+                                                         scale_percent)
         # Testing output size
         assert len(test_fn) == len(test_img_resized),\
             "Output is the wrong shape"
@@ -62,14 +62,13 @@ class test_GenerateIntensityMap(unittest.TestCase):
         # Get video from repo for testing
         test_vid = data
         test_img_name = 'test'
-        test_img_path = '~/Desktop'
+        test_img_path = '/Users/mcalli75/Desktop/'
         scale_percent = 1
         test_thresh = 5
         test_fn = GenerateIntensityMap.IntensityMap(test_vid, test_thresh,
                                                     scale_percent,
                                                     test_img_path,
                                                     test_img_name)
-        # Checking to see if array used for plotting is multidimensional
         # Testing output type
         assert type(test_fn) == matplotlib.collections.QuadMesh,\
             "Output is the wrong type"
