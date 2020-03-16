@@ -93,3 +93,4 @@ pre-suited to run `flashing_lights`
 ### Special Thanks
   * A big shout to Professor Dave Beck, Professor Ting Cao, Caityln Wolf, Jimin Qian, Ted Cohen,
   and Torin Stetina for all of their help as TAs in the development of this package.
+  * Thank you to the Professor Zhang & Professor Nance's labs for providing the videos that we could analyze. 
