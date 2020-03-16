@@ -1,18 +1,24 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import cv2
 import os
-import GenerateHeatMap
+from flashing_lights import GenerateHeatMap
+import requests
 
 
 def test_GetFreqCounts():
-    test_ret, test_img = cv2.imreadmulti(
-    'https://github.com/cmcalli716/flashing_lights/blob/master/\
-flashing_lights/data/NP_collision_videos/NP_collision_array.tif',
-                                            flags=cv2.IMREAD_GRAYSCALE)
-    test_thresh = 2
+    # Download video from repo for testing
+    filename = 'test.tif'
+    url = 'https://github.com/cmcalli716/flashing_lights/\
+    blob/master/flashing_lights/data/July_test.tif?raw=true'
+    req = requests.get(url)
+    assert req.status_code == 200,\
+        "Download failed"
+    with open(filename, 'wb') as f:
+        f.write(req.content)
+    test_ret, test_img = cv2.imreadmulti('test.tif',
+                                         flags=cv2.IMREAD_GRAYSCALE)
+    test_thresh = 5
     test_fn = GenerateHeatMap.GetFreqCounts(test_img[0], test_thresh)
-    # Testing output size
     assert len(test_fn) == len(test_img[0]),\
         "Output is the wrong shape"
     # Testing output type
@@ -23,11 +29,19 @@ flashing_lights/data/NP_collision_videos/NP_collision_array.tif',
 
 
 def test_GetFreqArray():
-    test_video = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
-flashing_lights/data/NP_collision_videos/NP_collision_array_2.tif'
-    test_ret, test_img = cv2.imreadmulti(test_video,
+    # Downloads video from github repo
+    filename = 'test.tif'
+    url = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
+    flashing_lights/data/July_test.tif?raw=true'
+    req = requests.get(url)
+    assert req.status_code == 200,\
+        "Download failed"
+    with open(filename, 'wb') as f:
+        f.write(req.content)
+    test_ret, test_img = cv2.imreadmulti('test.tif',
                                          flags=cv2.IMREAD_GRAYSCALE)
-    test_fn = GenerateHeatMap.GetFreqArray(test_video)
+    scale = 1
+    test_fn = GenerateHeatMap.GetFreqArray('test.tif', scale)
     # Testing output size
     assert len(test_fn) == len(test_img[0]),\
         "Output is the wrong shape"
@@ -39,16 +53,20 @@ flashing_lights/data/NP_collision_videos/NP_collision_array_2.tif'
 
 
 def test_Heatmap():
-    test_video = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
-flashing_lights/data/NP_collision_videos/NP_collision_array_2.tif'
+    # Downloads video from github repo
+    filename = 'test.tif'
+    url = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
+    flashing_lights/data/July_test.tif?raw=true'
+    req = requests.get(url)
+    assert req.status_code == 200,\
+        "Download failed"
+    with open(filename, 'wb') as f:
+        f.write(req.content)
     test_img_name = 'test'
     test_img_path = '/mnt/c/Users/'
-    # Checking how many plots are made before and after function
-    plot_before = plt.gcf().number
-    test_fn = GenerateHeatMap.Heatmap(test_video, test_img_path, test_img_name)
-    plot_after = plt.gcf().number
-    assert plot_before < plot_after,\
-        "You have nothing plotted"
+    scale = 1
+    test_fn = GenerateHeatMap.Heatmap('test.tif', scale,
+                                      test_img_path, test_img_name)
     # Checking to see if array used for plotting is multidimensional
     assert test_fn.ndim > 0,\
         "Wrong dimensional array used for plotting"

@@ -1,4 +1,4 @@
-__version__ = "1.0"
-from .GenerateHeatMap import GetFreqCounts
-from .GenerateHeatMap import GetFreqArray
-from .GenerateHeatMap import Heatmap
+from .version import __version__
+# from .GenerateHeatMap import *
+
+__all__ = [__version__]

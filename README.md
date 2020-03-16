@@ -2,8 +2,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/cmcalli716/flashing_lights/badge.svg?branch=master)](https://coveralls.io/github/cmcalli716/flashing_lights?branch=master)
 # Flashing Lights
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
-# Flashing Lights
-![Alt Text](https://im3.ezgif.com/tmp/ezgif-3-4aaa94386e67.gif)
+# 
+![Alt Text](lights.gif)
 ## Image Stack Processing Software for Fluorescence Microscopy in Research
 This software package can be utilized in fluorescence imaging analysis to
 effectively communicate information present within video files.
@@ -62,6 +62,11 @@ pre-suited to run `flashing_lights`
     * cv2
 
 ### Using flashing_lights
+* Before using, please download some sample data that you can test the package with (UW members only):
+  * https://drive.google.com/open?id=1_QdBC2IoNTqGhwI5b9mVSK-13hiPy7nv (Belongs to Chris)
+  * https://drive.google.com/open?id=1mJFNPfbdzfQ6NuFcVwRL8FVMmbw3L43K (Belongs to Chris)
+  * https://drive.google.com/open?id=1ZkAAcj-qXpCypLGnU8HuU47QkjAKdvko (Belongs to July)
+  * https://drive.google.com/open?id=12Noa3-JsaPup9Ao9WEqEOqzdbKAMogCA (Belongs to July)
 * Once installed, flashing_lights can be executed through a jupyter notebook.
   * It is recommended to run the code within the included
   virtual environment to avoid dependency hell
@@ -78,7 +83,3 @@ pre-suited to run `flashing_lights`
 ### Miscellaneous Notes
   * In regards to PEP8 compliance of the GenerateHeatMap.py file, pylint shoots back an error I1101.
   The '.pylintrc' file can be downloaded to prevent those from showing up in the terminal.
-
-### Preview of the results
-
-***Include screenshots of us using the code***
