@@ -5,6 +5,7 @@ from flashing_lights import GenerateHeatMap
 import requests
 import unittest
 
+
 class test_GenerateHeatMap(unittest.TestCase):
 
     def test_GetFreqCounts():
@@ -18,7 +19,7 @@ class test_GenerateHeatMap(unittest.TestCase):
         with open(filename, 'wb') as f:
             f.write(req.content)
         test_ret, test_img = cv2.imreadmulti('test.tif',
-                                         flags=cv2.IMREAD_GRAYSCALE)
+                                             flags=cv2.IMREAD_GRAYSCALE)
         test_thresh = 5
         test_fn = GenerateHeatMap.GetFreqCounts(test_img[0], test_thresh)
         assert len(test_fn) == len(test_img[0]),\
@@ -28,7 +29,6 @@ class test_GenerateHeatMap(unittest.TestCase):
             "Output is the wrong type"
         assert np.mean(test_fn) > 0,\
             "No counts were found in test image"
-
 
     def test_GetFreqArray():
         # Downloads video from github repo
@@ -41,7 +41,7 @@ class test_GenerateHeatMap(unittest.TestCase):
         with open(filename, 'wb') as f:
             f.write(req.content)
             test_ret, test_img = cv2.imreadmulti('test.tif',
-                                         flags=cv2.IMREAD_GRAYSCALE)
+                                                 flags=cv2.IMREAD_GRAYSCALE)
         scale = 1
         test_fn = GenerateHeatMap.GetFreqArray('test.tif', scale)
         # Testing output size
@@ -52,7 +52,6 @@ class test_GenerateHeatMap(unittest.TestCase):
             "Output is the wrong type"
         assert np.mean(test_fn) > 0,\
             "No counts were found in test video"
-
 
     def test_Heatmap():
         # Downloads video from github repo
@@ -68,7 +67,7 @@ class test_GenerateHeatMap(unittest.TestCase):
         test_img_path = '/mnt/c/Users/'
         scale = 1
         test_fn = GenerateHeatMap.Heatmap('test.tif', scale,
-                                      test_img_path, test_img_name)
+                                          test_img_path, test_img_name)
         # Checking to see if array used for plotting is multidimensional
         assert test_fn.ndim > 0,\
             "Wrong dimensional array used for plotting"
