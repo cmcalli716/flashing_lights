@@ -47,7 +47,7 @@ def GetFreqCounts(frame, threshold):
     return frequency
 
 
-def GetFreqArray(videofile, scale_percent):
+def GetFreqArray(videofile, threshold, scale_percent):
     """Finds pixel coordinates within a videofile (.tif, .mp4) for pixels
     that are abovea calculated brightness threshold, then accumulates the
     brightness event count for each coordinate,
@@ -69,10 +69,6 @@ def GetFreqArray(videofile, scale_percent):
     freq_array = np.zeros(np.shape(img_resized))
     # Looking through each frame to get the frequency counts
     for frame in range(len(img)):
-        # Setting threshold using mean and stdev of pixel brightness
-        mean = np.mean(img[frame])
-        std = np.std(img[frame])
-        threshold = mean + 3*std
         # Resize Frame
         frame_resized = cv2.resize(img[frame],
                                    dim, interpolation=cv2.INTER_AREA)
@@ -118,7 +114,7 @@ def GetFreqArray(videofile, scale_percent):
     return freq_array
 
 
-def Heatmap(videofile, scale_percent, img_path, img_name):
+def Heatmap(videofile, threshold, scale_percent, img_path, img_name):
     """Takes frequency accumulation array from
     GenerateHeatMap.GetFreqArray() and plots it as
     a colored meshgrid.
@@ -128,7 +124,7 @@ def Heatmap(videofile, scale_percent, img_path, img_name):
     # Reading video file
     ret, img = cv2.imreadmulti(videofile, flags=cv2.IMREAD_GRAYSCALE)
     # obtaining frequency array
-    z = GetFreqArray(videofile)
+    z = GetFreqArray(videofile, threshold, scale_percent)
     # Generating x and y axes in shape of image frame
     width = int(img[0].shape[1] * scale_percent / 100)
     height = int(img[0].shape[0] * scale_percent / 100)
