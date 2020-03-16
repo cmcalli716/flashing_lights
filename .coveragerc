@@ -1,7 +1,3 @@
-[run]
-omit =
-  *__init__.py
-  flashing_lights/version.py
 [report]
 omit =  
     */python?.?/*
