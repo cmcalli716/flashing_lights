@@ -8,14 +8,12 @@ import cv2
 from flashing_lights import GenerateIntensityMap
 
 
-data = 'data/July_test.tif'
+test_vid = 'flashing_lights/tests/data/July_test.tif'
 
 
 class test_GenerateIntensityMap(unittest.TestCase):
 
     def test_GetIntensityValues(self):
-        # Get video from repo for testing
-        test_vid = data
         test_ret, test_img = cv2.imreadmulti(test_vid,
                                              flags=cv2.IMREAD_GRAYSCALE)
         # Setting Resizing Dimensions
@@ -36,8 +34,6 @@ class test_GenerateIntensityMap(unittest.TestCase):
             "Output is the wrong type"
 
     def test_GetIntensityArray(self):
-        # Get video from repo for testing
-        test_vid = data
         test_ret, test_img = cv2.imreadmulti(test_vid,
                                              flags=cv2.IMREAD_GRAYSCALE)
         # Setting Resizing Dimensions
@@ -58,8 +54,6 @@ class test_GenerateIntensityMap(unittest.TestCase):
             "Output is the wrong type"
 
     def test_IntensityMap(self):
-        # Get video from repo for testing
-        test_vid = data
         test_img_name = 'test'
         test_img_path = '/Users/mcalli75/Desktop/'
         scale_percent = 1
