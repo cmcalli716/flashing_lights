@@ -1,11 +1,12 @@
 import numpy as np
 import cv2
 import os
-from flashing_lights import GenerateHeatMap
 import unittest
+import flashing_lights
+from flashing_lights import GenerateHeatMap
 
 
-data_path = os.path.join(GenerateHeatMap.__path__[0], 'data')
+data_path = os.path.join(flashing_lights.__path__[0], 'data')
 
 
 class test_GenerateHeatMap(unittest.TestCase):
