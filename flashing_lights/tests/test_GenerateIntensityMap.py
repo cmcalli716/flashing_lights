@@ -48,7 +48,6 @@ class test_GenerateIntensityMap(unittest.TestCase):
         test_img_resized = cv2.resize(test_img[0], dim,
                                       interpolation=cv2.INTER_AREA)
         test_thresh = 5
-        scale = 1
         test_fn = GenerateIntensityMap.GetIntensityArray(test_vid, test_thresh,
                                                          scale_percent)
         # Testing output size
