@@ -8,7 +8,7 @@ import unittest
 
 class test_GenerateHeatMap(unittest.TestCase):
 
-    def test_GetFreqCounts():
+    def test_GetFreqCounts(self):
         # Download video from repo for testing
         filename = 'test.tif'
         url = 'https://github.com/cmcalli716/flashing_lights/\
@@ -30,7 +30,7 @@ class test_GenerateHeatMap(unittest.TestCase):
         assert np.mean(test_fn) > 0,\
             "No counts were found in test image"
 
-    def test_GetFreqArray():
+    def test_GetFreqArray(self):
         # Downloads video from github repo
         filename = 'test.tif'
         url = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
@@ -53,7 +53,7 @@ class test_GenerateHeatMap(unittest.TestCase):
         assert np.mean(test_fn) > 0,\
             "No counts were found in test video"
 
-    def test_Heatmap():
+    def test_Heatmap(self):
         # Downloads video from github repo
         filename = 'test.tif'
         url = 'https://github.com/cmcalli716/flashing_lights/blob/master/\

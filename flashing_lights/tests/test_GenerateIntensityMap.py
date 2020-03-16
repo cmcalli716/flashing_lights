@@ -8,7 +8,7 @@ import unittest
 
 class test_GenerateIntensityMap(unittest.TestCase):
 
-    def test_GetIntensityValues():
+    def test_GetIntensityValues(self):
         # Download video from repo for testing
         filename = 'test.tif'
         url = 'https://github.com/cmcalli716/flashing_lights/\
@@ -32,7 +32,7 @@ class test_GenerateIntensityMap(unittest.TestCase):
         assert np.mean(test_fn) > 0,\
             "No counts were found in test image"
 
-    def test_GetIntensityArray():
+    def test_GetIntensityArray(self):
         # Download video from repo for testing
         filename = 'test.tif'
         url = 'https://github.com/cmcalli716/flashing_lights/\
@@ -57,7 +57,7 @@ class test_GenerateIntensityMap(unittest.TestCase):
         assert np.mean(test_fn) > 0,\
             "No counts were found in test video"
 
-    def test_IntensityMap():
+    def test_IntensityMap(self):
         test_img_name = 'test'
         test_img_path = '/mnt/c/Users/'
         # Download video from repo for testing
