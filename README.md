@@ -1,31 +1,31 @@
 [![Build Status](https://travis-ci.com/cmcalli716/flashing_lights.svg?branch=master)](https://travis-ci.com/cmcalli716/flashing_lights)
 [![Coverage Status](https://coveralls.io/repos/github/cmcalli716/flashing_lights/badge.svg?branch=master)](https://coveralls.io/github/cmcalli716/flashing_lights?branch=master)
-# Flashing Lights
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
-# 
-![Alt Text](lights.gif)
+# Flashing Lights
 ## Image Stack Processing Software for Fluorescence Microscopy in Research
-This software package can be utilized in fluorescence imaging analysis to
+![Alt Text](lights.gif)
+* This software package can be utilized in fluorescence imaging analysis to
 effectively communicate information present within video files.
 Functions present within the program are
 designed to:
 
-* Identify Regions of Interest (R.O.I.) based on relative pixel brightness
-* Accumulate ROI counts throughout the stack and return a frequency heat map
-* Accumulate ROI intensity throughout the stack and return an intensity heat map
+  * Identify Regions of Interest (R.O.I.) based on relative pixel brightness
+  * Accumulate ROI counts throughout the stack and return a frequency heat map
+  * Accumulate ROI intensity throughout the stack and return an intensity heat map
 
 #### Repository Structure
-```flashing_lights/
+```
   |- README.md
-  flashing_lights/
-      |- data/
+  |- flashing_lights/
       |- __init__.py
-      |- GenerateHeatMap/
-        |- __init__.py
-        |- GenerateHeatMap.py
+      |- GenerateHeatMap.py
+      |- GenerateIntensitymap.py
       |- tests/
         |- __init__.py
         |- test_GenerateHeatMap.py
+        |- test_GenerateIntensityMap.py
+      |- data/
+        |-July_test.tif
   |- doc/
       |- functionality.md
       |- usage_cases.md
@@ -38,6 +38,8 @@ designed to:
   |- environment.yml
   |- .pylintrc (for pylint conflict with opencv)
   |- .gitignore
+  |- lights.gif (Star Trek Video)
+  |- ROI_video_example.gif
   |- LICENSE
 
 ```
@@ -80,10 +82,13 @@ pre-suited to run `flashing_lights`
   into the command line:
   `jupyter notebook flashing_lights/examples/templates/fl_nb_template.ipynb`
 
+### Example Code Output
+![Alt Text](ROI_video_example.gif)
+
 ### Miscellaneous Notes
   * In regards to PEP8 compliance of the GenerateHeatMap.py file, pylint shoots back an error I1101.
   The '.pylintrc' file can be downloaded to prevent those from showing up in the terminal.
 
 ### Special Thanks
-  * A big shout to Professor Dave Beck, Professor Ting Cao, Caityln Wolf, Jimin Qian, Ted Cohen, 
+  * A big shout to Professor Dave Beck, Professor Ting Cao, Caityln Wolf, Jimin Qian, Ted Cohen,
   and Torin Stetina for all of their help as TAs in the development of this package.
