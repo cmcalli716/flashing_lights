@@ -21,14 +21,14 @@ before_install:
 install:
     - conda env create -q -n test-environment python=$TRAVIS_PYTHON_VERSION --file environment.yml
     - source activate test-environment
-    - conda install --yes coverage coveralls flake8
+    - conda install --yes coverage flake8
+    - pip install coveralls
 
 before_script:
     - flake8 flashing_lights
 
 script:
     - coverage run -m unittest discover
-
 after_success:
     - coverage report
     - coveralls

@@ -1,81 +1,70 @@
+import os
+import unittest
+
+import matplotlib
 import numpy as np
 import cv2
-import os
+
+import flashing_lights
 from flashing_lights import GenerateIntensityMap
-import requests
 
 
-def test_GetIntensityValues():
-    # Download video from repo for testing
-    filename = 'test.tif'
-    url = 'https://github.com/cmcalli716/flashing_lights/\
-    blob/master/flashing_lights/data/July_test.tif?raw=true'
-    req = requests.get(url)
-    assert req.status_code == 200,\
-        "Download failed"
-    with open(filename, 'wb') as f:
-        f.write(req.content)
-    test_ret, test_img = cv2.imreadmulti('test.tif',
-                                         flags=cv2.IMREAD_GRAYSCALE)
-    test_thresh = 5
-    test_fn = GenerateIntensityMap.GetIntensityValues(test_img[0], test_thresh)
-    # Testing output size
-    assert len(test_fn) == len(test_img[0]),\
-        "Output is the wrong shape"
-    # Testing output type
-    assert type(test_fn) == np.ndarray,\
-        "Output is the wrong type"
-    assert np.mean(test_fn) > 0,\
-        "No counts were found in test image"
+file_name = 'July_test.tif'
+data_path = os.path.join(flashing_lights.__path__[0], 'data')
+test_vid = os.path.join(data_path, file_name)
 
 
-def test_GetIntensityArray():
-    # Download video from repo for testing
-    filename = 'test.tif'
-    url = 'https://github.com/cmcalli716/flashing_lights/\
-    blob/master/flashing_lights/data/July_test.tif?raw=true'
-    req = requests.get(url)
-    assert req.status_code == 200,\
-        "Download failed"
-    with open(filename, 'wb') as f:
-        f.write(req.content)
-    test_ret, test_img = cv2.imreadmulti('test.tif',
-                                         flags=cv2.IMREAD_GRAYSCALE)
-    test_thresh = 5
-    scale = 1
-    test_fn = GenerateIntensityMap.GetIntensityArray('test.tif',
-                                                     test_thresh, scale)
-    # Testing output size
-    assert len(test_fn) == len(test_img[0]),\
-        "Output is the wrong shape"
-    # Testing output type
-    assert type(test_fn) == np.ndarray,\
-        "Output is the wrong type"
-    assert np.mean(test_fn) > 0,\
-        "No counts were found in test video"
+class test_GenerateIntensityMap(unittest.TestCase):
 
+    def test_GetIntensityValues(self):
+        test_ret, test_img = cv2.imreadmulti(test_vid,
+                                             flags=cv2.IMREAD_GRAYSCALE)
+        # Setting Resizing Dimensions
+        scale_percent = 1
+        width = int(test_img[0].shape[1] * scale_percent / 100)
+        height = int(test_img[0].shape[0] * scale_percent / 100)
+        dim = (width, height)
+        test_img_resized = cv2.resize(test_img[0], dim,
+                                      interpolation=cv2.INTER_AREA)
+        test_thresh = 5
+        test_fn = GenerateIntensityMap.GetIntensityValues(test_img_resized,
+                                                          test_thresh)
+        # Testing output size
+        assert len(test_fn) == len(test_img_resized),\
+            "Output is the wrong shape"
+        # Testing output type
+        assert type(test_fn) == np.ndarray,\
+            "Output is the wrong type"
 
-def test_IntensityMap():
-    test_img_name = 'test'
-    test_img_path = '/mnt/c/Users/'
-    # Download video from repo for testing
-    filename = 'test.tif'
-    url = 'https://github.com/cmcalli716/flashing_lights/\
-    blob/master/flashing_lights/data/July_test.tif?raw=true'
-    req = requests.get(url)
-    assert req.status_code == 200,\
-        "Download failed"
-    with open(filename, 'wb') as f:
-        f.write(req.content)
-    test_ret, test_img = cv2.imreadmulti('test.tif',
-                                         flags=cv2.IMREAD_GRAYSCALE)
-    test_thresh = 5
-    scale = 1
-    test_fn = GenerateIntensityMap.IntensityMap('test.tif', test_thresh, scale,
-                                                test_img_path, test_img_name)
-    # Checking to see if array used for plotting is multidimensional
-    assert test_fn.ndim > 0,\
-        "Wrong dimensional array used for plotting"
-    # Checking to see if file is empty or not
-    assert os.path.getsize(test_img_path + '/' + test_img_name) > 0,\
-        "Saved file is empty."
+    def test_GetIntensityArray(self):
+        test_ret, test_img = cv2.imreadmulti(test_vid,
+                                             flags=cv2.IMREAD_GRAYSCALE)
+        # Setting Resizing Dimensions
+        scale_percent = 1
+        width = int(test_img[0].shape[1] * scale_percent / 100)
+        height = int(test_img[0].shape[0] * scale_percent / 100)
+        dim = (width, height)
+        test_img_resized = cv2.resize(test_img[0], dim,
+                                      interpolation=cv2.INTER_AREA)
+        test_thresh = 5
+        test_fn = GenerateIntensityMap.GetIntensityArray(test_vid, test_thresh,
+                                                         scale_percent)
+        # Testing output size
+        assert len(test_fn) == len(test_img_resized),\
+            "Output is the wrong shape"
+        # Testing output type
+        assert type(test_fn) == np.ndarray,\
+            "Output is the wrong type"
+
+    def test_IntensityMap(self):
+        test_img_name = 'test'
+        test_img_path = '.'
+        scale_percent = 1
+        test_thresh = 5
+        test_fn = GenerateIntensityMap.IntensityMap(test_vid, test_thresh,
+                                                    scale_percent,
+                                                    test_img_path,
+                                                    test_img_name)
+        # Testing output type
+        assert type(test_fn) == matplotlib.collections.QuadMesh,\
+            "Output is the wrong type"
