@@ -1,2 +1,4 @@
-__version__ = "1.0"
-from .GenerateHeatMap import *
+from .version import __version__
+# from .GenerateHeatMap import *
+
+__all__ = [__version__]
