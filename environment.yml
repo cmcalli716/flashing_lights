@@ -4,5 +4,4 @@ dependencies:
   - scipy
   - matplotlib
   - scikit-image
-  - requests
   - opencv
