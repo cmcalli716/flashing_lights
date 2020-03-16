@@ -8,7 +8,7 @@ import cv2
 from flashing_lights import GenerateHeatMap
 
 
-test_vid = 'flashing_lights/tests/data/July_test.tif'
+test_vid = './data/July_test.tif'
 
 
 class test_GenerateHeatMap(unittest.TestCase):

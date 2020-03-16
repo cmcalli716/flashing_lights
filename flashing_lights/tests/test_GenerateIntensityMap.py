@@ -8,7 +8,7 @@ import cv2
 from flashing_lights import GenerateIntensityMap
 
 
-test_vid = 'flashing_lights/tests/data/July_test.tif'
+test_vid = './data/July_test.tif'
 
 
 class test_GenerateIntensityMap(unittest.TestCase):
