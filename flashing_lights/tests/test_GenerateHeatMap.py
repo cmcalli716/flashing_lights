@@ -9,16 +9,10 @@ import unittest
 class test_GenerateHeatMap(unittest.TestCase):
 
     def test_GetFreqCounts(self):
-        # Download video from repo for testing
-        filename = 'test.tif'
-        url = 'https://github.com/cmcalli716/flashing_lights/\
-        blob/master/flashing_lights/data/July_test.tif?raw=true'
-        req = requests.get(url)
-        assert req.status_code == 200,\
-            "Download failed"
-        with open(filename, 'wb') as f:
-            f.write(req.content)
-        test_ret, test_img = cv2.imreadmulti('test.tif',
+        # Get video from repo for testing
+        filename = 'July_test.tif'
+        test_vid = os.path.join(data_path, filename)
+        test_ret, test_img = cv2.imreadmulti(test_vid,
                                              flags=cv2.IMREAD_GRAYSCALE)
         test_thresh = 5
         test_fn = GenerateHeatMap.GetFreqCounts(test_img[0], test_thresh)
@@ -31,17 +25,11 @@ class test_GenerateHeatMap(unittest.TestCase):
             "No counts were found in test image"
 
     def test_GetFreqArray(self):
-        # Downloads video from github repo
-        filename = 'test.tif'
-        url = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
-        flashing_lights/data/July_test.tif?raw=true'
-        req = requests.get(url)
-        assert req.status_code == 200,\
-            "Download failed"
-        with open(filename, 'wb') as f:
-            f.write(req.content)
-            test_ret, test_img = cv2.imreadmulti('test.tif',
-                                                 flags=cv2.IMREAD_GRAYSCALE)
+        # Get video from repo for testing
+        filename = 'July_test.tif'
+        test_vid = os.path.join(data_path, filename)
+        test_ret, test_img = cv2.imreadmulti(test_vid,
+                                             flags=cv2.IMREAD_GRAYSCALE)
         scale = 1
         test_fn = GenerateHeatMap.GetFreqArray('test.tif', scale)
         # Testing output size
@@ -54,19 +42,13 @@ class test_GenerateHeatMap(unittest.TestCase):
             "No counts were found in test video"
 
     def test_Heatmap(self):
-        # Downloads video from github repo
-        filename = 'test.tif'
-        url = 'https://github.com/cmcalli716/flashing_lights/blob/master/\
-        flashing_lights/data/July_test.tif?raw=true'
-        req = requests.get(url)
-        assert req.status_code == 200,\
-            "Download failed"
-        with open(filename, 'wb') as f:
-            f.write(req.content)
+        # Get video from repo for testing
+        filename = 'July_test.tif'
+        test_vid = os.path.join(data_path, filename)
         test_img_name = 'test'
         test_img_path = '/mnt/c/Users/'
         scale = 1
-        test_fn = GenerateHeatMap.Heatmap('test.tif', scale,
+        test_fn = GenerateHeatMap.Heatmap(test_vid, scale,
                                           test_img_path, test_img_name)
         # Checking to see if array used for plotting is multidimensional
         assert test_fn.ndim > 0,\

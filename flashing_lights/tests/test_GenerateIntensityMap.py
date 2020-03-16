@@ -6,19 +6,16 @@ import requests
 import unittest
 
 
+data_path = os.path.join(flashing_lights.__path__[0], 'data')
+
+
 class test_GenerateIntensityMap(unittest.TestCase):
 
     def test_GetIntensityValues(self):
-        # Download video from repo for testing
-        filename = 'test.tif'
-        url = 'https://github.com/cmcalli716/flashing_lights/\
-        blob/master/flashing_lights/data/July_test.tif?raw=true'
-        req = requests.get(url)
-        assert req.status_code == 200,\
-            "Download failed"
-        with open(filename, 'wb') as f:
-            f.write(req.content)
-        test_ret, test_img = cv2.imreadmulti('test.tif',
+        # Get video from repo for testing
+        filename = 'July_test.tif'
+        test_vid = os.path.join(data_path, filename)
+        test_ret, test_img = cv2.imreadmulti(test_vid,
                                              flags=cv2.IMREAD_GRAYSCALE)
         test_thresh = 5
         test_fn = GenerateIntensityMap.GetIntensityValues(test_img[0],
@@ -33,16 +30,10 @@ class test_GenerateIntensityMap(unittest.TestCase):
             "No counts were found in test image"
 
     def test_GetIntensityArray(self):
-        # Download video from repo for testing
-        filename = 'test.tif'
-        url = 'https://github.com/cmcalli716/flashing_lights/\
-        blob/master/flashing_lights/data/July_test.tif?raw=true'
-        req = requests.get(url)
-        assert req.status_code == 200,\
-            "Download failed"
-        with open(filename, 'wb') as f:
-            f.write(req.content)
-        test_ret, test_img = cv2.imreadmulti('test.tif',
+        # Get video from repo for testing
+        filename = 'July_test.tif'
+        test_vid = os.path.join(data_path, filename)
+        test_ret, test_img = cv2.imreadmulti(test_vid,
                                              flags=cv2.IMREAD_GRAYSCALE)
         test_thresh = 5
         scale = 1
@@ -60,20 +51,12 @@ class test_GenerateIntensityMap(unittest.TestCase):
     def test_IntensityMap(self):
         test_img_name = 'test'
         test_img_path = '/mnt/c/Users/'
-        # Download video from repo for testing
-        filename = 'test.tif'
-        url = 'https://github.com/cmcalli716/flashing_lights/\
-        blob/master/flashing_lights/data/July_test.tif?raw=true'
-        req = requests.get(url)
-        assert req.status_code == 200,\
-            "Download failed"
-        with open(filename, 'wb') as f:
-            f.write(req.content)
-        test_ret, test_img = cv2.imreadmulti('test.tif',
-                                             flags=cv2.IMREAD_GRAYSCALE)
+        # Get video from repo for testing
+        filename = 'July_test.tif'
+        test_vid = os.path.join(data_path, filename)
         test_thresh = 5
         scale = 1
-        test_fn = GenerateIntensityMap.IntensityMap('test.tif', test_thresh,
+        test_fn = GenerateIntensityMap.IntensityMap(test_vid, test_thresh,
                                                     scale, test_img_path,
                                                     test_img_name)
         # Checking to see if array used for plotting is multidimensional
