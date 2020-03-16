@@ -1,4 +1,10 @@
+[run]
+branch = True
+source = flashing_lights/*
+include = flashing_lights/*
+omit = */setup.py
 [report]
+include = flashing_lights/*
 omit =  
     */python?.?/*
     */site-packages/nose/*
