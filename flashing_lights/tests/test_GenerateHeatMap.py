@@ -71,6 +71,6 @@ class test_GenerateHeatMap(unittest.TestCase):
         assert type(test_fn) == matplotlib.collections.QuadMesh,\
             "Output is the wrong type"
         # Checking to see if file is empty or not
-        assert os.path.getsize(test_img_path + '/' +
+        assert os.path.getsize(test_img_path +
                                test_img_name + '.png') > 0,\
             "Saved file is empty."
