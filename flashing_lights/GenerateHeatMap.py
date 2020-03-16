@@ -82,7 +82,7 @@ def GetFreqArray(videofile, threshold, scale_percent, outliers=True):
                     freq_array[row[i], col[j]] += 1
         else:
             pass
-    if outliers == True:
+    if outliers is True:
         # Videos may contain points with extremely high frequency
         # relative to other pixels. This can affect the quality
         # of the heatmap produced. So, this part of the code determines a
@@ -128,7 +128,7 @@ def Heatmap(videofile, threshold, scale_percent, img_path, img_name,
     # Reading video file
     ret, img = cv2.imreadmulti(videofile, flags=cv2.IMREAD_GRAYSCALE)
     # obtaining frequency array
-    if outliers == True:
+    if outliers is True:
         z = GetFreqArray(videofile, threshold, scale_percent)
     else:
         z = GetFreqArray(videofile, threshold, scale_percent, outliers=False)

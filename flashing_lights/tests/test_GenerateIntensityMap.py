@@ -8,7 +8,7 @@ import cv2
 from flashing_lights import GenerateIntensityMap
 
 
-data='data/July_test.tif'
+data = 'data/July_test.tif'
 
 
 class test_GenerateIntensityMap(unittest.TestCase):
@@ -23,7 +23,7 @@ class test_GenerateIntensityMap(unittest.TestCase):
         width = int(test_img[0].shape[1] * scale_percent / 100)
         height = int(test_img[0].shape[0] * scale_percent / 100)
         dim = (width, height)
-        test_img_resized = cv2.resize(test_img_resized, dim,
+        test_img_resized = cv2.resize(test_img[0], dim,
                                       interpolation=cv2.INTER_AREA)
         test_thresh = 5
         test_fn = GenerateIntensityMap.GetIntensityValues(test_img_resized,
@@ -61,19 +61,11 @@ class test_GenerateIntensityMap(unittest.TestCase):
     def test_IntensityMap(self):
         # Get video from repo for testing
         test_vid = data
-        test_ret, test_img = cv2.imreadmulti(test_vid,
-                                             flags=cv2.IMREAD_GRAYSCALE)
-        # Setting Resizing Dimensions
-        scale_percent = 1
-        width = int(test_img[0].shape[1] * scale_percent / 100)
-        height = int(test_img[0].shape[0] * scale_percent / 100)
-        dim = (width, height)
-        test_img_resized = cv2.resize(test_img[0], dim,
-                                      interpolation=cv2.INTER_AREA)
         test_img_name = 'test'
         test_img_path = '~/Desktop'
+        scale_percent = 1
         test_thresh = 5
-        test_fn = GenerateIntensityMap.IntensityMap(test_img, test_thresh,
+        test_fn = GenerateIntensityMap.IntensityMap(test_vid, test_thresh,
                                                     scale_percent,
                                                     test_img_path,
                                                     test_img_name)

@@ -8,7 +8,7 @@ import cv2
 from flashing_lights import GenerateHeatMap
 
 
-data='data/July_test.tif'
+data = 'data/July_test.tif'
 
 
 class test_GenerateHeatMap(unittest.TestCase):
@@ -41,8 +41,7 @@ class test_GenerateHeatMap(unittest.TestCase):
         # Get video from repo for testing
         test_vid = data
         test_ret, test_img = cv2.imreadmulti(test_vid,
-                                             flags=cv2.IMREAD_GRAYSCALE
-                                             outliers=False)
+                                             flags=cv2.IMREAD_GRAYSCALE)
         # Setting Resizing Dimensions
         scale_percent = 1
         width = int(test_img[0].shape[1] * scale_percent / 100)
@@ -64,21 +63,13 @@ class test_GenerateHeatMap(unittest.TestCase):
         """Tests heatmap functionality"""
         # Get video from repo for testing
         test_vid = data
-        test_ret, test_img = cv2.imreadmulti(test_vid,
-                                             flags=cv2.IMREAD_GRAYSCALE)
-        # Setting Resizing Dimensions
-        scale_percent = 1
-        width = int(test_img[0].shape[1] * scale_percent / 100)
-        height = int(test_img[0].shape[0] * scale_percent / 100)
-        dim = (width, height)
-        test_img_resized = cv2.resize(test_img[0], dim,
-                                      interpolation=cv2.INTER_AREA)
         test_img_name = 'test'
         test_img_path = '~/Desktop'
+        scale_percent = 1
         test_thresh = 5
-        scale = 1
         test_fn = GenerateHeatMap.Heatmap(test_vid, test_thresh, scale_percent,
-                          test_img_path, test_img_name, outliers=False)
+                                          test_img_path, test_img_name,
+                                          outliers=False)
         # Testing output type
         assert type(test_fn) == matplotlib.collections.QuadMesh,\
             "Output is the wrong type"
