@@ -5,10 +5,13 @@ import matplotlib
 import numpy as np
 import cv2
 
+import flashing_lights
 from flashing_lights import GenerateIntensityMap
 
 
-test_vid = './data/July_test.tif'
+file_name = 'July_test.tif'
+data_path = os.path.join(flashing_lights.__path__[0], 'data')
+test_vid = os.path.join(data_path, file_name)
 
 
 class test_GenerateIntensityMap(unittest.TestCase):
