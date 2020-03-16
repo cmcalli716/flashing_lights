@@ -61,7 +61,7 @@ class test_GenerateHeatMap(unittest.TestCase):
     def test_Heatmap(self):
         """Tests heatmap functionality"""
         test_img_name = 'test'
-        test_img_path = '/Users/mcalli75/Desktop/'
+        test_img_path = '/mnt/c/Users/'
         scale_percent = 1
         test_thresh = 5
         test_fn = GenerateHeatMap.Heatmap(test_vid, test_thresh, scale_percent,

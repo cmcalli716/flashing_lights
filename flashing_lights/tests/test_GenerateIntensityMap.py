@@ -58,7 +58,7 @@ class test_GenerateIntensityMap(unittest.TestCase):
 
     def test_IntensityMap(self):
         test_img_name = 'test'
-        test_img_path = '/Users/mcalli75/Desktop/'
+        test_img_path = '/mnt/c/Users/'
         scale_percent = 1
         test_thresh = 5
         test_fn = GenerateIntensityMap.IntensityMap(test_vid, test_thresh,
