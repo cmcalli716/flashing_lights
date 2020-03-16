@@ -55,6 +55,9 @@ def GetFreqArray(videofile, threshold, scale_percent, outliers=True):
 
     Input:
     -videofile: file containing an image stack of fluorescent events
+    -threshold: minimum brightness value for event detection
+    -scale_percent: size of image you would like to resize to (% value)
+    -outliers: If True, tests for outliers in the data
 
     Output: 2-d Array of frequency values for each pixel above
     a calculated brightness threshold in the video"""
