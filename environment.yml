@@ -3,4 +3,8 @@ dependencies:
   - numpy
   - scipy
   - matplotlib
+  - os
+  - scikit-image
+  - requests
+  - unittest
   - opencv
