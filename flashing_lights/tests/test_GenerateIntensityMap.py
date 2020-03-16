@@ -36,7 +36,7 @@ class test_GenerateIntensityMap(unittest.TestCase):
         test_ret, test_img = cv2.imreadmulti(test_vid,
                                              flags=cv2.IMREAD_GRAYSCALE)
         test_thresh = 5
-        scale = 1
+        scale = 0.1
         test_fn = GenerateIntensityMap.GetIntensityArray(test_vid,
                                                          test_thresh, scale)
         # Testing output size
@@ -57,7 +57,7 @@ class test_GenerateIntensityMap(unittest.TestCase):
         test_ret, test_img = cv2.imreadmulti(test_vid,
                                              flags=cv2.IMREAD_GRAYSCALE)
         test_thresh = 5
-        scale = 1
+        scale = 0.1
         test_fn = GenerateIntensityMap.IntensityMap(test_img, test_thresh,
                                                     scale, test_img_path,
                                                     test_img_name)

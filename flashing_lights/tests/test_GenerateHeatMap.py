@@ -34,7 +34,7 @@ class test_GenerateHeatMap(unittest.TestCase):
         test_ret, test_img = cv2.imreadmulti(test_vid,
                                              flags=cv2.IMREAD_GRAYSCALE)
         test_thresh = 5
-        scale = 1
+        scale = 0.1
         test_fn = GenerateHeatMap.GetFreqArray(test_vid, test_thresh, scale)
         # Testing output size
         assert len(test_fn) == len(test_img[0]),\
@@ -52,7 +52,7 @@ class test_GenerateHeatMap(unittest.TestCase):
         test_img_name = 'test'
         test_img_path = '/mnt/c/Users/'
         test_thresh = 5
-        scale = 1
+        scale = 0.1
         test_fn = GenerateHeatMap.Heatmap(test_vid, test_thresh, scale,
                                           test_img_path, test_img_name)
         # Checking to see if array used for plotting is multidimensional

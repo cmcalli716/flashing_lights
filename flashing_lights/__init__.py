@@ -1,4 +1,6 @@
-from .version import __version__
-# from .GenerateHeatMap import *
+__all__ = ["GenerateHeatMap", "GenerateIntensityMap", "version"]
 
-__all__ = [__version__]
+
+from flashing_lights import GenerateHeatMap
+from flashing_lights import GenerateIntensityMap
+from flashing_lights.version import __version__
