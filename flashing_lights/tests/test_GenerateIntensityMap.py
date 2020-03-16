@@ -2,11 +2,10 @@ import numpy as np
 import cv2
 import os
 from flashing_lights import GenerateIntensityMap
-import requests
 import unittest
 
 
-data_path = os.path.join(flashing_lights.__path__[0], 'data')
+data_path = os.path.join(GenerateIntensityMap.__path__[0], 'data')
 
 
 class test_GenerateIntensityMap(unittest.TestCase):
