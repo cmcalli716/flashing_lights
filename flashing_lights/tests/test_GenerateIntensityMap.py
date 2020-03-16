@@ -68,7 +68,3 @@ class test_GenerateIntensityMap(unittest.TestCase):
         # Testing output type
         assert type(test_fn) == matplotlib.collections.QuadMesh,\
             "Output is the wrong type"
-        # Checking to see if file is empty or not
-        assert os.path.getsize(test_img_path +
-                               test_img_name + '.png') > 0,\
-            "Saved file is empty."
