@@ -21,12 +21,18 @@ designed to:
       |- __init__.py
       |- GenerateHeatMap.py
       |- GenerateIntensitymap.py
+      |- ROILocator.py
       |- tests/
         |- __init__.py
         |- test_GenerateHeatMap.py
         |- test_GenerateIntensityMap.py
+        |- test_ROILocator.
+        |- __pycache__/
       |- data/
-        |-July_test.tif
+        |- July_test.tif
+        |- test_ROI.tif
+        |- test_gray.tif
+      |- __pycache__/
   |- doc/
       |- README.md
       |- functionality.md
@@ -37,8 +43,10 @@ designed to:
       |- README.md
       |- GenerateHeatMap.example.ipynb
       |- GenerateIntensityMap.example.ipynb
+      |- ROILocator.example.ipynb
       |- ExampleFrequencyHeatmapImages/
       |- ExampleIntensityHeatmapImages/
+      |- ExampleROILocatorVideos/
   |- setup.py
   |- .travis.yml
   |- environment.yml
@@ -90,5 +98,5 @@ pre-suited to run `flashing_lights`
 
 ### Special Thanks
   * A big shout to Professor Dave Beck, Professor Ting Cao, Caityln Wolf, Jimin Qian, Ted Cohen,
-  and Torin Stetina for all of their help as TAs in the development of this package.
+  and Torin Stetina for all of their help during the development of this package.
   * Thank you to Professor Zhang & Professor Nance's labs for providing the videos that we could analyze.
