@@ -36,6 +36,10 @@ class test_GenerateIntensityMap(unittest.TestCase):
         test_fn2 = GenerateIntensityMap.GetIntensityValues(test_img_resized,
                                                            test_thresh2)
         # Testing output size
+        assert test_fn1.ndim > 0,\
+            "Output1 dimensionality is incorrect"
+        assert test_fn2.ndim > 0,\
+            "Output2 dimensionality is incorrect"
         assert len(test_fn1) == len(test_img_resized),\
             "Output1 is the wrong shape"
         assert len(test_fn2) == len(test_img_resized),\
@@ -69,6 +73,10 @@ class test_GenerateIntensityMap(unittest.TestCase):
                                                           test_thresh2,
                                                           scale_percent)
         # Testing output size
+        assert test_fn1.ndim > 0,\
+            "Output 1 has incorrect dimensionality"
+        assert test_fn2.ndim > 0,\
+            "Output 2 has incorrect dimensionality"
         assert len(test_fn1) == len(test_img_resized),\
             "Output1 is the wrong shape"
         assert len(test_fn2) == len(test_img_resized),\
