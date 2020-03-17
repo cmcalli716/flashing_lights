@@ -32,9 +32,9 @@ class test_GenerateIntensityMap(unittest.TestCase):
         test_thresh1 = 5
         test_thresh2 = 50000
         test_fn1 = GenerateIntensityMap.GetIntensityValues(test_img_resized,
-                                                          test_thresh1)
+                                                           test_thresh1)
         test_fn2 = GenerateIntensityMap.GetIntensityValues(test_img_resized,
-                                                          test_thresh2)
+                                                           test_thresh2)
         # Testing output size
         assert len(test_fn1) == len(test_img_resized),\
             "Output1 is the wrong shape"
@@ -88,13 +88,13 @@ class test_GenerateIntensityMap(unittest.TestCase):
         test_thresh1 = 5
         test_thresh2 = 50000
         test_fn1 = GenerateIntensityMap.IntensityMap(test_vid, test_thresh1,
-                                                    scale_percent,
-                                                    test_img_path,
-                                                    test_img_name)
+                                                     scale_percent,
+                                                     test_img_path,
+                                                     test_img_name)
         test_fn2 = GenerateIntensityMap.IntensityMap(test_vid, test_thresh2,
-                                                    scale_percent,
-                                                    test_img_path,
-                                                    test_img_name)
+                                                     scale_percent,
+                                                     test_img_path,
+                                                     test_img_name)
         # Testing output type
         assert type(test_fn1) == matplotlib.collections.QuadMesh,\
             "Output1 is the wrong type"
