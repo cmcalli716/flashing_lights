@@ -13,6 +13,7 @@ file_name1 = 'July_test.tif'
 data_path = os.path.join(flashing_lights.__path__[0], 'data')
 test_vid1 = os.path.join(data_path, file_name1)
 
+
 class test_GenerateHeatMap(unittest.TestCase):
 
     def test_GetFreqCounts(self):
@@ -39,7 +40,7 @@ class test_GenerateHeatMap(unittest.TestCase):
     def test_GetFreqArray(self):
         """Tests GetFreqArray functionality"""
         test_ret, test_img = cv2.imreadmulti(test_vid1,
-                                               flags=cv2.IMREAD_GRAYSCALE)
+                                             flags=cv2.IMREAD_GRAYSCALE)
         # Setting Resizing Dimensions
         scale_percent = 1
         width = int(test_img[0].shape[1] * scale_percent / 100)
