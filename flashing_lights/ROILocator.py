@@ -18,13 +18,13 @@ def gray_scaler(path):
     img = sio.imread(path)
     # Read image file with skimage.io.
     if len(img) > 1:
-    # If the image file is multiple page, treat the first column as page.
+        # If the image file is multiple page, treat the first column as page.
         graylist = []
         # Empty list to store output.
         # Iterate through the length of the file.
         for i in range(len(img)):
             # Append the grayscale result into empty list.
-            graylist.append(skimage.color.rgb2gray(img[i,:]))
+            graylist.append(skimage.color.rgb2gray(img[i, :]))
         # Turn the output into numpy array.
         gray = np.asarray(graylist)
     # If the image file is single page, directly use the skimage
@@ -33,6 +33,7 @@ def gray_scaler(path):
         gray = skimage.color.rgb2gray(img)
 
     return gray
+
 
 def img_normalizer(img):
     """Normalizes pixel brightness within an image to 255.
@@ -47,8 +48,8 @@ def img_normalizer(img):
     # Iterate through the file length to find the
     # maximum and minimum within the file.
     for i in range(len(img)):
-        gmax = np.amax(img[i,:])
-        gmin = np.amin(img[i,:])
+        gmax = np.amax(img[i, :])
+        gmin = np.amin(img[i, :])
         maxlist.append(gmax)
         minlist.append(gmin)
     graymax = np.asarray(maxlist).max()
@@ -83,7 +84,8 @@ def diff_of_gauss(norm_gray, ngraymean, ngraystd, mean, std, overlap):
         # Use blob_dog function from skimage.feature to capture ROI
         # based on local maximum brightness.
         roi.append(blob_dog(norm_gray[i, :], max_sigma=30,
-            threshold = mean * ngraymean[i] + std * ngraystd[i], overlap = overlap))
+                   threshold=mean * ngraymean[i] + std
+                   * ngraystd[i], overlap=overlap))
     return roi
 
 
@@ -121,7 +123,8 @@ def ROI_counting(roi, length):
         for j in range(len(roi[i - 1])):
             for k in range(len(roi[i])):
                 # Find how many identical ROI there are between two frames.
-                # ROIs are consider to be the same if the distance between them are less than 2 pixels.
+                # ROIs are consider to be the same if the distance between
+                # them are less than 2 pixels.
                 pos1 = np.asarray([roi[i - 1][j][0], roi[i - 1][j][1]])
                 pos2 = np.asarray([roi[i][k][0], roi[i][k][1]])
                 distance = np.linalg.norm(pos1 - pos2)
@@ -141,7 +144,8 @@ def ROI_counting_list(img, roi):
     Output: List of ROI counts."""
     roi_count_list = []
     length = len(img)
-    # Calculate the accumulative ROIs that appear from 1st frame to certain frame.
+    # Calculate the accumulative ROIs that appear from
+    # 1st frame to certain frame.
     for i in range(0, length):
         roi_count_list.append(ROI_counting(roi, i))
     return roi_count_list
@@ -150,7 +154,8 @@ def ROI_counting_list(img, roi):
 def plot_and_save(img, path_of_directory, roi, roi_count_list):
     """Plots the images with ROI patches and save to local directory.
 
-    Input: Image or frame of video, path of desired working directory, output of ROI_counting_list().
+    Input: Image or frame of video, path of desired working directory,
+    output of ROI_counting_list().
 
     Output: List of path to saved images."""
     file_name = []
@@ -159,26 +164,28 @@ def plot_and_save(img, path_of_directory, roi, roi_count_list):
     length = len(img)
     # Plot the image with patched ROI.
     for i in range(0, length):
-        fig,ax = plt.subplots(figsize = (12, 12))
-        ax.imshow(img[i], cmap = matplotlib.cm.gray)
+        fig, ax = plt.subplots(figsize=(12, 12))
+        ax.imshow(img[i], cmap=matplotlib.cm.gray)
         # Show the accumulative ROIs on title.
-        ax.set_title('Total count of ROI: {}'.format(roi_count_list[i]), fontsize = 20)
+        ax.set_title('Total count of ROI: {}'.format(roi_count_list[i]),
+                     fontsize=20)
         for j in range(len(roi[i])):
             y, x, r = roi[i][j]
             # Area of ROI are set to 20x for better visualization.
-            c = patches.Circle((x, y), r * np.sqrt(20), color = 'r', linewidth=0.8, fill=False)
+            c = patches.Circle((x, y), r * np.sqrt(20),
+                               color='r', linewidth=0.8, fill=False)
             ax.add_patch(c)
         # Save the plotted figures to assigned path of directory.
-        fig.savefig(path_of_directory + '\img{}.png'.format(i))
+        fig.savefig(path_of_directory + '/img{}.png'.format(i))
         # Create the list of file name for later use.
-        file_name.append(path_of_directory + '\img{}.png'.format(i))
+        file_name.append(path_of_directory + '/' + 'img{}.png'.format(i))
         plt.close(fig)
     # Turn the interactive mode back on.
     plt.ion()
     return file_name
 
 
-def video_writer(file_name, path_of_directory):    
+def video_writer(file_name, path_of_directory):
     """Creates video from saved plots.
 
     Input: List of path to saved images, path of desired working directory.
@@ -189,7 +196,8 @@ def video_writer(file_name, path_of_directory):
     height, width, channels = frame.shape
     # Give fourcc argument to openCV.
     fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
-    out = cv2.VideoWriter(path_of_directory + '\output.avi', fourcc, 20.0, (width, height))
+    out = cv2.VideoWriter(path_of_directory + '/output.avi', fourcc, 20.0,
+                          (width, height))
     # Write the highlighted images into created video file frame by frame.
     for image in file_name:
         image_path = image
@@ -198,8 +206,8 @@ def video_writer(file_name, path_of_directory):
     # Remove the image files.
     for file in file_name:
         os.remove(file)
-    print('The output video is {}'.format(path_of_directory + '\output.avi'))
-    return path_of_directory + '\output.avi'
+    print('The output video is {}'.format(path_of_directory + '/output.avi'))
+    return path_of_directory + '/output.avi'
 
 
 def ROI_locator(path, path_of_directory, mean, std, overlap):
@@ -217,7 +225,8 @@ def ROI_locator(path, path_of_directory, mean, std, overlap):
     # Create ROI count list
     roi_count_list = ROI_counting_list(norm_gray, roi)
     # Save images with ROI-patch.
-    file_name = plot_and_save(norm_gray, path_of_directory, roi, roi_count_list)
+    file_name = plot_and_save(norm_gray, path_of_directory,
+                              roi, roi_count_list)
     # Convert the saved images into video, and delete the images.
     video_path = video_writer(file_name, path_of_directory)
     return video_path
