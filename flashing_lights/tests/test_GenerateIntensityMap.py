@@ -26,6 +26,8 @@ class test_GenerateIntensityMap(unittest.TestCase):
         width = int(test_img[0].shape[1] * scale_percent / 100)
         height = int(test_img[0].shape[0] * scale_percent / 100)
         dim = (width, height)
+        self.assertNotIn(0, width, msg="Invalid width")
+        self.assertNotIn(0, height, msg="Invalid height")
         test_img_resized = cv2.resize(test_img[0], dim,
                                       interpolation=cv2.INTER_AREA)
         test_thresh = 5
@@ -39,6 +41,8 @@ class test_GenerateIntensityMap(unittest.TestCase):
             "Output is the wrong type"
 
     def test_GetIntensityArray(self):
+        assert os.stat(test_vid).st_size > 0,\
+            "File is empty"
         test_ret, test_img = cv2.imreadmulti(test_vid,
                                              flags=cv2.IMREAD_GRAYSCALE)
         # Setting Resizing Dimensions
@@ -47,7 +51,8 @@ class test_GenerateIntensityMap(unittest.TestCase):
         height = int(test_img[0].shape[0] * scale_percent / 100)
         dim = (width, height)
         # Checking for valid dimensions
-        self.assertNotIn(0, dim, msg="Invalid Dimensions")
+        self.assertNotIn(0, width, msg="Invalid width")
+        self.assertNotIn(0, height, msg="Invalid height")
         test_img_resized = cv2.resize(test_img[0], dim,
                                       interpolation=cv2.INTER_AREA)
         test_thresh = 5
@@ -61,6 +66,8 @@ class test_GenerateIntensityMap(unittest.TestCase):
             "Output is the wrong type"
 
     def test_IntensityMap(self):
+        assert os.stat(test_vid).st_size > 0,\
+            "File is empty"
         test_img_name = 'test'
         test_img_path = '.'
         scale_percent = 1
