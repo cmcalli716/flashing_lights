@@ -3,4 +3,4 @@
 * Descriptions of code functionality
 * Usage Cases
 * A folder of presentations associated with this project
-* An image of the structure for project modules
+* Images of project module structures

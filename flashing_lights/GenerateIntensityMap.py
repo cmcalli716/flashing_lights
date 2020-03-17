@@ -20,9 +20,6 @@ def GetIntensityValues(frame, threshold):
     """
     # Generating empty matrix for coordinate assignment
     intensities = np.zeros(np.shape(frame))
-    # Generating index lists to keep track of ROI coordinates
-    index_count_row = []
-    index_count_col = []
     # Looks through matrix for points above a brightness threshold
     if len(np.where(frame >= threshold)) > 0:
         # Finding coordinates of brightness events
@@ -32,8 +29,6 @@ def GetIntensityValues(frame, threshold):
                 # Adds intensity value in the position of the
                 # given brightness event
                 intensities[row[i], col[j]] = frame[row[i], col[j]]
-                index_count_row.append(row[i])
-                index_count_col.append(col[j])
     else:
         pass
     return intensities
